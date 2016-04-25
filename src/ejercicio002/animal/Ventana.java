@@ -5,17 +5,23 @@
  */
 package ejercicio002.animal;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
  */
 public class Ventana extends javax.swing.JFrame {
 
+    Animal ani01=new Animal("001", "Samy", "Elefante", "Cuadrupedo", 1.20, 150.0);;
+    Animal ani02=new Animal("002", "Samy", "Elefante", "Cuadrupedo", 1.20, 150.0);
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
+       // pnlAccion.setVisible(false);
     }
 
     /**
@@ -27,21 +33,229 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        pnlDatos = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        lblEspecie = new javax.swing.JLabel();
+        lblTipo = new javax.swing.JLabel();
+        lblAltura = new javax.swing.JLabel();
+        lblPeso = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtEspecie = new javax.swing.JTextField();
+        txtTipo = new javax.swing.JTextField();
+        txtAltura = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
+        btnValidar = new javax.swing.JButton();
+        pnlAccion = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        btnGrande = new javax.swing.JButton();
+        btnPesado = new javax.swing.JButton();
+        btnComparacion = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Ficha de Animal");
+
+        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Animal"));
+        pnlDatos.setToolTipText("");
+        pnlDatos.setFocusCycleRoot(true);
+        pnlDatos.setName(""); // NOI18N
+
+        lblNombre.setText("Nombre : ");
+
+        lblEspecie.setText("Especie : ");
+
+        lblTipo.setText("Tipo : ");
+
+        lblAltura.setText("Altura : ");
+
+        lblPeso.setText("Peso : ");
+
+        txtEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEspecieActionPerformed(evt);
+            }
+        });
+
+        txtTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoActionPerformed(evt);
+            }
+        });
+
+        txtAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAlturaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEspecie)
+                            .addComponent(lblTipo)
+                            .addComponent(lblAltura)
+                            .addComponent(lblPeso))
+                        .addGap(30, 30, 30)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEspecie)
+                            .addComponent(txtTipo)
+                            .addComponent(txtAltura)
+                            .addComponent(txtPeso, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEspecie)
+                    .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipo)
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAltura)
+                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPeso)
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnValidar.setText("Validar");
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
+
+        pnlAccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
+
+        btnGuardar.setText("Guardar");
+
+        btnGrande.setText("¿Es Grande?");
+
+        btnPesado.setText("¿Es Pesado?");
+
+        btnComparacion.setText("Comparar");
+        btnComparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComparacionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAccionLayout = new javax.swing.GroupLayout(pnlAccion);
+        pnlAccion.setLayout(pnlAccionLayout);
+        pnlAccionLayout.setHorizontalGroup(
+            pnlAccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAccionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPesado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGrande, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(btnComparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlAccionLayout.setVerticalGroup(
+            pnlAccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAccionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGuardar)
+                .addGap(18, 18, 18)
+                .addComponent(btnGrande)
+                .addGap(18, 18, 18)
+                .addComponent(btnPesado)
+                .addGap(18, 18, 18)
+                .addComponent(btnComparacion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pnlAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(btnValidar)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlAccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnValidar)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEspecieActionPerformed
+
+    private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoActionPerformed
+
+    private void txtAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAlturaActionPerformed
+
+    private void btnComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComparacionActionPerformed
+        if(ani02.equals(ani02)){
+            System.out.println("Iguales");
+        }else{
+            System.out.println("Distinto");
+        }
+        ani01=ani02;
+        System.out.println(ani02.hashCode());
+        System.out.println(ani01.hashCode());
+    }//GEN-LAST:event_btnComparacionActionPerformed
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        if(txtNombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingrese el nombre del animal");
+        }
+
+        
+        
+        txtNombre.setBackground(Color.red);
+    }//GEN-LAST:event_btnValidarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +293,23 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnComparacion;
+    private javax.swing.JButton btnGrande;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnPesado;
+    private javax.swing.JButton btnValidar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAltura;
+    private javax.swing.JLabel lblEspecie;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblTipo;
+    private javax.swing.JPanel pnlAccion;
+    private javax.swing.JPanel pnlDatos;
+    private javax.swing.JTextField txtAltura;
+    private javax.swing.JTextField txtEspecie;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPeso;
+    private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }

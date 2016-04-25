@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejercicio001.persona;
+package prueba01.automotriz;
 
 /**
  *
@@ -15,7 +15,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Ventana v = new Ventana();
-        v.setVisible(true);
+        Ventana principal=new Ventana();
+        principal.setVisible(true);
     }
+    
 }

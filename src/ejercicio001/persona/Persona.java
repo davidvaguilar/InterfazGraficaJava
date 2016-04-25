@@ -23,18 +23,18 @@ public class Persona {
     }
 
     public String saludar(String hora){
-        String saludo="Hola, ";
-        if(Integer.parseInt(hora)<12){
-            saludo=saludo+"Buenos Dias, ";
+        String frase = "Hola, ";
+        Integer intHora = Integer.parseInt(hora);
+        if(intHora < 12){
+            frase = frase + "Buenos Dias, ¿Como estas?";
         }else{
-            if(Integer.parseInt(hora)<20){
-                saludo=saludo+"Buenas Tardes, ";
+            if(intHora < 20){
+                frase = frase + "Buenas Tardes, ¿Como te ha ido?";
             }else{
-                saludo=saludo+"Buenas Noches, ";
+                frase = frase + "Buenas Noches, ¿Que tal estuvo tu dia?";
             }
         }
-        saludo=saludo+"como estas?";
-        return saludo;
+        return frase;
     }
     
     public String presentarse(){
@@ -42,25 +42,25 @@ public class Persona {
     }
     
     public String despedirse(String hora){
-        String despedida="Adios, ";
-        if(Integer.parseInt(hora)<12){
-            despedida=despedida+"que tenga un buen dia";
+        String frase = "Adios, ";
+        Integer intHora = Integer.parseInt(hora);
+        if(intHora < 12){
+            frase = frase + "que tenga un buen dia";
         }else{
-            if(Integer.parseInt(hora)<20){
-                despedida=despedida+"que tenga una bonita tarde";
+            if(intHora < 20){
+                frase = frase + "que tenga una bonita tarde";
             }else{
-                despedida=despedida+"que tenga una buena noche.";
+                frase = frase + "que tenga una buena noche.";
             }
         }     
-        
-        return despedida;
+        return frase;
     }
     
     @Override
     public String toString() {
-        return "Rut : "+ this.perRut+
+        return ("Rut : "+ this.perRut+
                 "\nNombre : "+this.perNombre+
-                "\nApellidos : "+this.perApellidoPaterno+" "+ this.perApellidoMaterno;
+                "\nApellidos : "+this.perApellidoPaterno+" "+ this.perApellidoMaterno);
     }
     
     
