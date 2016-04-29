@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    Animal ani01=new Animal("001", "Samy", "Elefante", "Cuadrupedo", 1.20, 150.0);;
-    Animal ani02=new Animal("002", "Samy", "Elefante", "Cuadrupedo", 1.20, 150.0);
+    Animal ani01;
+    Animal ani02=new Animal("Samy", "Elefante", "Cuadrupedo", 1.20, 150.0);
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
-       // pnlAccion.setVisible(false);
+        pnlAccion.setVisible(false);
     }
 
     /**
@@ -33,7 +33,7 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JLabel();
         pnlDatos = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         lblEspecie = new javax.swing.JLabel();
@@ -54,7 +54,8 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ficha de Animal");
+        txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo.setText("Ficha de Animal");
 
         pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Animal"));
         pnlDatos.setToolTipText("");
@@ -150,8 +151,18 @@ public class Ventana extends javax.swing.JFrame {
         pnlAccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnGrande.setText("¿Es Grande?");
+        btnGrande.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrandeActionPerformed(evt);
+            }
+        });
 
         btnPesado.setText("¿Es Pesado?");
 
@@ -186,7 +197,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(btnPesado)
                 .addGap(18, 18, 18)
                 .addComponent(btnComparacion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,31 +205,33 @@ public class Ventana extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(btnValidar)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(pnlAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnValidar)
+                                .addGap(196, 196, 196)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(txtTitulo)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlAccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnValidar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,25 +250,58 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAlturaActionPerformed
 
     private void btnComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComparacionActionPerformed
-        if(ani02.equals(ani02)){
-            System.out.println("Iguales");
+        if(ani01.equals(ani01)){
+            JOptionPane.showMessageDialog(this, "Los Animales son Iguales");
         }else{
-            System.out.println("Distinto");
+            JOptionPane.showMessageDialog(this, "Los Animales son Iguales");
         }
-        ani01=ani02;
-        System.out.println(ani02.hashCode());
-        System.out.println(ani01.hashCode());
+       
     }//GEN-LAST:event_btnComparacionActionPerformed
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
-        if(txtNombre.getText().isEmpty()){
+        String nombre="",especie="";
+        
+        if(  !txtNombre.getText().isEmpty()  ){
             JOptionPane.showMessageDialog(this, "Ingrese el nombre del animal");
+            txtNombre.setBackground(Color.red);
+        }else{
+            
+        }
+        if(txtEspecie.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingrese la especie del animal");
+            txtEspecie.setBackground(Color.BLUE);
+        }else{
+            
         }
 
+        String tipo=txtTipo.getText();
+        String altura=txtAltura.getText();
+        String peso=txtPeso.getText();
         
         
-        txtNombre.setBackground(Color.red);
+        
+        pnlAccion.setVisible(true);
     }//GEN-LAST:event_btnValidarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String nombre="",especie="";
+        nombre=txtNombre.getText();
+        especie=txtEspecie.getText();
+        String tipo=txtTipo.getText();
+        String altura=txtAltura.getText();
+        String peso=txtPeso.getText();
+        ani01=new Animal(nombre, especie, tipo, Double.parseDouble(altura), Double.parseDouble(peso));
+        JOptionPane.showMessageDialog(this, ani01.toString());
+                
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnGrandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrandeActionPerformed
+        
+        if(ani01.esGrande())
+            JOptionPane.showMessageDialog(this,"Es Grande" );
+        else
+            JOptionPane.showMessageDialog(this,"No es Grande" );
+    }//GEN-LAST:event_btnGrandeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,7 +344,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnPesado;
     private javax.swing.JButton btnValidar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAltura;
     private javax.swing.JLabel lblEspecie;
     private javax.swing.JLabel lblNombre;
@@ -311,5 +356,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPeso;
     private javax.swing.JTextField txtTipo;
+    private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

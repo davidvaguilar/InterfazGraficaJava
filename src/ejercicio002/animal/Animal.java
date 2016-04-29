@@ -19,8 +19,8 @@ public class Animal {
     private Double aniAltura;
     private Double aniPeso;
 
-    public Animal(String codigo, String nombre, String especie, String tipo, Double altura, Double peso) {
-        this.aniCodigo = codigo;
+    public Animal( String nombre, String especie, String tipo, Double altura, Double peso) {
+        this.aniCodigo = "001";
         this.aniNombre = nombre;
         this.aniEspecie = especie;
         this.aniTipo = tipo;
