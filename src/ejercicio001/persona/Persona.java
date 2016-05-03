@@ -22,6 +22,11 @@ public class Persona {
         this.perApellidoMaterno = perApellidoMaterno;
     }
 
+    public String getPerRut() {
+        return perRut;
+    }
+
+    
     public String saludar(String hora){
         String frase = "Hola, ";
         Integer intHora = Integer.parseInt(hora);

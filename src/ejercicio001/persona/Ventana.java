@@ -5,6 +5,7 @@
  */
 package ejercicio001.persona;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class Ventana extends javax.swing.JFrame {
     //ATRIBUTOS y OBJETOS
-    private Persona p1;
+     
+    private ArrayList<Persona> lista;
     /**
      * Creates new form Ventana
      */
@@ -170,14 +172,14 @@ public class Ventana extends javax.swing.JFrame {
         String hora;
         String mensaje;
         hora= JOptionPane.showInputDialog(this, "Ingrese la hora");
-        mensaje=p1.saludar(hora);
+        mensaje=lista.get(0).saludar(hora);
         JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_btnSaludarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String rut,nombre,paterno,materno;   
-      
-         
+        lista=new ArrayList<Persona>();
+        Persona p1;
         rut=txtRut.getText();
         nombre=txtNombre.getText();
         paterno=txtApePaterno.getText();
@@ -187,21 +189,23 @@ public class Ventana extends javax.swing.JFrame {
         txtApePaterno.setText("");
         txtApeMaterno.setText("");
         p1 = new Persona(rut, nombre, paterno, materno);
+        lista.add(p1);
         JOptionPane.showMessageDialog(this, "La informacion ha sido guardada correctamente");
         btnSaludar.setVisible(true);
         btnDespedirse.setVisible(true);
         btnPresentarse.setVisible(true);
+        
         // System.out.println(p1.toString()); 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnPresentarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresentarseActionPerformed
-        JOptionPane.showMessageDialog(this, p1.presentarse());        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, lista.get(0).presentarse());        // TODO add your handling code here:
     }//GEN-LAST:event_btnPresentarseActionPerformed
 
     private void btnDespedirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDespedirseActionPerformed
         String hora;
         hora= JOptionPane.showInputDialog(this, "Ingrese la hora");
-        JOptionPane.showMessageDialog(this, p1.despedirse(hora));
+        JOptionPane.showMessageDialog(this, lista.get(0).despedirse(hora));
     }//GEN-LAST:event_btnDespedirseActionPerformed
 
     /**
